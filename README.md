@@ -1,5 +1,17 @@
 # IP Repository Structure
 
+## Key assumptions
+
+The organization of this repository and its tooling is guided by the following
+assumptions, which define both scope and integration boundaries:
+
+1) The primary focus of this repository is the IP data itself rather than the hosting of
+   implementation flows.
+2) IP data is intentionally decoupled from flows. Flows are expected to be delivered as
+   separate repositories and to source and export IP data using the proposed format.
+3) Dependencies are handled recursively and may be implemented as submodules to preserve
+   traceability and ensure reproducible integration.
+
 ## IP development and contribution workflow
 
 This repository is not intended for active IP development. Instead, use the generator
@@ -39,7 +51,7 @@ Usage (run from a local working directory outside this repository):
 python3 gen_structure.py <technology> <subcategory> [dependency1 dependency2 ...]
 ```
 
-`technology` must be one of: `SKY`, `IHP`, `GF`.
+`technology` must be `IHP`.
 
 Before choosing a subcategory, review `IP-Categories.md` to select the appropriate
 category and abbreviation and to ensure consistency with the published taxonomy.
@@ -59,7 +71,7 @@ Format:
 
 Components:
 
-- `TECH`: process provider family identifier, e.g. `SKY`, `GF`, `IHP`, `ICS`
+- `TECH`: process provider family identifier, currently `IHP`
 - `subcategory-abbrev`: abbreviation from `ip-categories.json`
 - `4digits`: randomly generated 4-digit decimal identifier
 
@@ -70,9 +82,7 @@ while preserving the category semantics via the subcategory.
 Examples:
 
 ```
-SKY__ADC-0421
 IHP__PLL-3840
-GF__MCU-1207
 ```
 
 ## Recursive structure
