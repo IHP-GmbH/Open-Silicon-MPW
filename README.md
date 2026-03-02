@@ -7,7 +7,7 @@ standalone IP repository, then publish it on GitHub and request inclusion as a s
 
 ```mermaid
 flowchart TD
-    A[Choose subcategory] --> B[Run gen_structure.py]
+    A[Choose technology + subcategory] --> B[Run gen_structure.py]
     B --> C[Develop IP in standalone repo]
     C --> D[Prepare release: copy production-ready files to release/<version>/]
     D --> E[Fill and maintain doc/info.json]
@@ -24,22 +24,23 @@ Many of these checks will be handled by GitHub Actions (data consistency, DRC, L
 Format:
 
 ```
-<TECH>_<TYPE>__<subcategory-abbrev>-<4digits>
+<TECH>__<subcategory-abbrev>-<4digits>
 ```
 
 Components:
 
 - `TECH`: process provider family identifier, e.g. `SKY`, `GF`, `IHP`, `ICS`
-- `TYPE`: IP domain letter: `A` (Analog), `D` (Digital), `P` (Photonics), `M` (Mixed-signal), `R` (RF/mmWave)
 - `subcategory-abbrev`: abbreviation from `ip-categories.json`
 - `4digits`: randomly generated 4-digit decimal identifier
+
+The IP type is derived from the chosen subcategory when running the generator.
 
 Examples:
 
 ```
-SKY_M__ADC-0421
-IHP_M__PLL-3840
-GF_D__MCU-1207
+SKY__ADC-0421
+IHP__PLL-3840
+GF__MCU-1207
 ```
 
 ## Generating a new IP structure
@@ -55,26 +56,47 @@ The script will:
 Usage:
 
 ```
-python3 gen_structure.py <subcategory> [dependency1 dependency2 ...]
+python3 gen_structure.py <technology> <subcategory> [dependency1 dependency2 ...]
 ```
 
-Warning: Only subcategories defined in `IP/ip-categories.json` are permitted.
-See `IP/IP-Categories.md` for the allowed list.
+`technology` must be one of: `SKY`, `IHP`, `GF`.
+
+Before choosing a subcategory, review `IP-Categories.md` to select an appropriate category.
+
+Warning: Only subcategories defined in `ip-categories.json` are permitted.
+See `IP-Categories.md` for the allowed list.
 
 ## Recursive structure
 
 The generated IP has a full design structure at the top level and the same structure
-recursively for every dependency listed in the arguments. Each dependency becomes a
-subdirectory under `dependencies/` and includes its own `doc/`, `release/`, and design
-folders, mirroring the top-level layout.
+recursively for every dependency listed in the generation script arguments. Each
+dependency is created under `dependencies/`, which is also where you should place
+dependency IPs. Those dependency IPs can be submodules and should follow the same
+structure (`doc/`, `release/`, and design folders) as the top-level IP.
 
-## Adding your IP to EuroCDP
+## Adding your IP to Open-Silicon-MPW
 
 1) Run the script locally, outside this repository, to generate the IP directory.
 2) Create a GitHub repository using the generated directory name.
 3) Initialize and push your IP repository, then your repository can be added here
    as a submodule.
-4) Open a GitHub issue requesting the EuroCDP team to add your repository as a submodule.
+4) Open a GitHub issue requesting the Open-Silicon-MPW team to add your repository as a submodule.
+
+Issue template (include the .gitmodules snippet):
+
+```
+## Submodule request
+
+- Repository URL: https://github.com/<org>/<repo>.git
+- Category directory: <Category> (Analog, Digital, RF, Mixed-Signal)
+- Submodule path: <Category>/<TECH>__<subcategory-abbrev>-<4digits>
+
+### .gitmodules snippet
+
+[submodule "<Category>/<TECH>__<subcategory-abbrev>-<4digits>"]
+  path = <Category>/<TECH>__<subcategory-abbrev>-<4digits>
+  url = https://github.com/<org>/<repo>.git
+```
 
 ```
 git init

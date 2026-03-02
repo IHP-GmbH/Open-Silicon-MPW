@@ -11,13 +11,17 @@ from pathlib import Path
 
 def usage() -> None:
     print("Usage:")
-    print("  ./generate_structure.py <subcategory> [dependency1 dependency2 ...]")
+    print("  ./generate_structure.py <technology> <subcategory> [dependency1 dependency2 ...]")
     print("")
     print("Example:")
-    print("  ./generate_structure.py ADC VCO")
+    print("  ./generate_structure.py IHP ADC VCO")
 
 
-def load_categories(categories_path: Path) -> dict:
+def load_categories(categories_source: str) -> dict:
+    if categories_source.startswith(("http://", "https://")):
+        with urllib.request.urlopen(categories_source) as handle:
+            return json.loads(handle.read().decode("utf-8"))
+    categories_path = Path(categories_source)
     with categories_path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
 
@@ -81,19 +85,27 @@ def write_trl_template(
         try:
             urllib.request.urlretrieve(trl_url, trl_path)
             return
-        except (urllib.error.HTTPError, urllib.error.URLError):
+        except (urllib.error.HTTPError, urllib.error.URLError) as exc:
             fallback_path = fallback_dir / trl_filename
             if fallback_path.is_file():
                 shutil.copyfile(fallback_path, trl_path)
                 return
-            raise
+            raise FileNotFoundError(
+                "TRL template download failed and no local template found. "
+                f"Provide '{trl_filename}' under '{os.path.join(base_dir, 'doc')}' "
+                "or ensure TRL-templates are available locally."
+            ) from exc
 
     local_base = Path(trl_source)
     if not local_base.is_absolute():
         local_base = (fallback_dir.parent / local_base).resolve()
     local_path = local_base / trl_filename
     if not local_path.is_file():
-        raise FileNotFoundError(f"TRL template not found: {local_path}")
+        raise FileNotFoundError(
+            "TRL template not found. "
+            f"Provide '{trl_filename}' under '{os.path.join(base_dir, 'doc')}' "
+            "or ensure TRL-templates are available locally."
+        )
     shutil.copyfile(local_path, trl_path)
 
 
@@ -249,15 +261,35 @@ def create_ip_structure(
 
 
 def main() -> int:
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         usage()
         return 1
 
-    subcategory_arg = sys.argv[1]
-    cells = sys.argv[2:]
+    tech_arg = sys.argv[1]
+    subcategory_arg = sys.argv[2]
+    cells = sys.argv[3:]
 
+    tech_options = {"SKY", "IHP", "GF"}
+    tech = tech_arg.strip().upper()
+    if tech not in tech_options:
+        raise ValueError(
+            f"Unknown technology: {tech_arg}. Expected one of: {', '.join(sorted(tech_options))}"
+        )
+
+    repo_raw_base = (
+        "https://raw.githubusercontent.com/IHP-GmbH/Open-Silicon-MPW-March2026/main"
+    )
+    categories_url = f"{repo_raw_base}/ip-categories.json"
     categories_path = Path(__file__).resolve().parent / "ip-categories.json"
-    categories = load_categories(categories_path)
+    try:
+        categories = load_categories(categories_url)
+    except (OSError, urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError) as exc:
+        print(
+            "Warning: Unable to fetch ip-categories.json from GitHub; "
+            "falling back to local copy.",
+            file=sys.stderr,
+        )
+        categories = load_categories(str(categories_path))
     category, subcategory_full, subcategory_abbrev = resolve_category_from_subcategory(
         categories,
         subcategory_arg,
@@ -272,11 +304,10 @@ def main() -> int:
     }
     mode = mode_map[category]
 
-    tech = "IHP"
     ip_suffix = f"{random.randint(0, 9999):04d}"
     unique_id = ip_suffix
     ip_name = f"{subcategory_abbrev}-{ip_suffix}"
-    root = f"{tech}_{mode}__{ip_name}"
+    root = f"{tech}__{ip_name}"
     release_version = "v.1.0.0"
     process = "SG13G2"
     pdk_version = ""
@@ -290,7 +321,7 @@ def main() -> int:
     if mode == "R":
         description = "Design data."
 
-    trl_source = "https://github.com/IHP-GmbH/EuroCDP/blob/main/IP/TRL-templates/"
+    trl_source = f"{repo_raw_base}/TRL-templates/"
     fallback_dir = Path(__file__).resolve().parent / "TRL-templates"
 
     create_ip_structure(
