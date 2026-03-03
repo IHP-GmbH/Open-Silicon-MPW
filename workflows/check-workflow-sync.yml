@@ -1,0 +1,54 @@
+name: Check Workflow Sync
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Verify workflow availability
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check workflow files
+        env:
+          TARGET_REPO: IHP-GmbH/Open-Silicon-MPW
+          TARGET_BRANCH: main
+          SOURCE_DIR: workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -d "${SOURCE_DIR}" ]; then
+            echo "::warning::${SOURCE_DIR} directory does not exist. Skipping check."
+            exit 0
+          fi
+
+          mapfile -t files < <(find "${SOURCE_DIR}" -maxdepth 1 -type f -printf '%f\n' | sort)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::warning::No workflow files found in ${SOURCE_DIR}. Skipping check."
+            exit 0
+          fi
+
+          missing=()
+
+          for file in "${files[@]}"; do
+            url="https://raw.githubusercontent.com/${TARGET_REPO}/${TARGET_BRANCH}/.github/workflows/${file}"
+            if ! curl -fsSL "$url" >/dev/null; then
+              missing+=("$file")
+            fi
+          done
+
+          if [ ${#missing[@]} -ne 0 ]; then
+            echo "Missing workflow files in ${TARGET_REPO}:${TARGET_BRANCH}/.github/workflows:"
+            for file in "${missing[@]}"; do
+              echo "- ${file}"
+            done
+            exit 1
+          fi
+
+          echo "All workflow files in ${SOURCE_DIR} are available in ${TARGET_REPO}:${TARGET_BRANCH}/.github/workflows."
