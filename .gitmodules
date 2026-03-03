@@ -1,6 +1,3 @@
-[submodule "March-2026/Analog/IHP_A__BandgapReference_0xCD6E"]
-	path = March-2026/Analog/IHP_A__BandgapReference_0xCD6E
-	url = https://github.com/IHP-GmbH/IHP_A__BandgapReference_0xCD6E.git
 [submodule "March-2026/Analog/IHP__BGR-0210"]
 	path = March-2026/Analog/IHP__BGR-0210
 	url = https://github.com/IHP-GmbH/IHP__BGR-0210
