@@ -1,50 +1,27 @@
-# IP Repository Structure
+# Submission guidelines
 
-## Key assumptions
+> **Warning**
+> Read this document carefully before starting the implementation.
 
-The organization of this repository and its tooling is guided by the following
-assumptions, which define both scope and integration boundaries:
+## Overview
 
-1) The primary focus of this repository is the IP data itself rather than the hosting of
-   implementation flows.
-2) IP data is intentionally decoupled from flows. Flows are expected to be delivered as
-   separate repositories and to source and export IP data using the proposed format.
-3) Dependencies are handled recursively and may be implemented as submodules to preserve
-   traceability and ensure reproducible integration.
-
-## IP development and contribution workflow
-
-This repository is not intended for active IP development. Instead, use the generator
-script to create a standalone IP repository, publish it on GitHub, and then request
-inclusion as a submodule in the corresponding Open-Silicon-MPW repository. The goal is
-to keep this repository as a curated aggregation of production-ready IPs and shared
-automation assets.
+This repository aggregates production-ready IPs as submodules. IP development and
+release preparation happen in standalone repositories. When ready, a submission request
+is made to include the IP as a submodule under the relevant MPW category directory.
 
 Four directory structures are available, corresponding to Analog, Digital, RF, and
 Mixed-Signal design categories.
 
-```mermaid
-flowchart LR
-    A[Select category + subcategory] --> B[Clone Open-Silicon-MPW for gen_structure.py]
-    B --> C[Run gen_structure.py]
-    C --> D[Develop IP in standalone repo]
-    D --> E[Prepare release: copy production-ready files to release/<version>/]
-    E --> F[Fill and maintain doc/info.json]
-    F --> G[Publish repo on GitHub]
-    G --> H[Request submodule via GitHub issue]
-```
-
-Keep `doc/info.json` accurate throughout development. This metadata is used for IP
-evaluation, maintenance, and provisioning, and it enables automated checks. Many of
-these checks are expected to be handled by GitHub Actions (data consistency, DRC, LVS,
-and linting), so completeness and correctness are mandatory.
-
 ## Categories
+
+### Category table
 
 Categories and subcategories are standardized. Select the correct subcategory before
 generation and keep the category consistent with the repository placement under
 `March-2026/<Category>`. Subcategories map to fixed abbreviations and those abbreviations
-must be used in the top-level IP name and kept consistent with `doc/info.json`.
+must be used in the top-level IP name and kept consistent with `doc/info.json`. If you
+would like to add more subcategories or abbreviations, request them via a GitHub issue on
+[Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW).
 
 | Category | Subcategory | Abbreviation |
 | --- | --- | --- |
@@ -89,77 +66,129 @@ must be used in the top-level IP name and kept consistent with `doc/info.json`.
 
 ## Submission process
 
+### Steps
+
 1) Select category and subcategory.
-2) Clone the Open-Silicon-MPW repository to obtain `gen_structure.py`.
-3) Run the generator outside this repository to create the IP repo skeleton:
 
-```
-python3 gen_structure.py <technology> <subcategory> [dependency1 dependency2 ...]
-```
+   Select the category and subcategory that match the IP and confirm the
+   abbreviation that will appear in the top-level IP name and repository path.
 
-**Note:** `technology` must be `IHP`.
+2) Clone the Open-Silicon-MPW repository.
 
-**Tip:** Dependencies can be submodules, provided they follow the same IP structure
-conventions as the top-level repository.
+   Clone the [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW)
+   repository locally to obtain the `gen_structure.py` script.
 
-4) Develop and document the IP in the standalone repository:
-   - Keep the directory layout intact.
-   - Keep the top cell name aligned with the generated name across all views.
-   - Maintain `doc/info.json` with accurate metadata, release paths, and dependencies.
-   - Fill the corresponding TRL document under `doc/`.
-   - Populate `release/<version>/` with production-ready deliverables (GDS, netlist,
-     and supporting documentation).
-5) Publish the IP repository on GitHub.
-6) Sync shared workflows (optional but recommended). If the generated IP repo includes
-   `check-workflow-sync.yml`, it stages workflow updates into `.github/workflows-staged/`
-   and opens an issue describing what was staged.
+3) Generate the IP repository structure.
 
-**Tip:** To activate a staged workflow, copy it manually into `.github/workflows/`.
+   Run the generator outside the [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW)
+   repository to create a new IP repo skeleton.
 
-7) Request submodule inclusion by opening a GitHub issue with this snippet:
+   ```
+   python3 gen_structure.py <technology> <subcategory> [dependency1 dependency2 ...]
+   ```
 
-```
-## Submodule request
+   > **Tip**
+   > Dependencies can be submodules, provided they follow the same IP structure
+   > conventions as the top-level repository.
 
-- Repository URL: https://github.com/<org>/<repo>.git
-- Category directory: March-2026/<Category> (Analog, Digital, RF, Mixed-Signal)
-- Submodule path: March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>
+   > **Note**
+   > `technology` must be `IHP`.
 
-### .gitmodules snippet
+4) Develop and document the IP.
 
-[submodule "March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>"]
-  path = March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>
-  url = https://github.com/<org>/<repo>.git
-```
+   In the standalone IP repository:
+
+   - Implement the design and keep the directory layout intact.
+   - Keep the top cell name aligned with the generated name (for example,
+     `OPA-4532`) across all views in the repository.
+   - Maintain `doc/info.json` with accurate metadata, release paths, and
+     dependencies.
+   - Fill the corresponding Technology Readiness Level (TRL) document under
+     `doc/`.
+   - Populate `release/<version>/` with production-ready deliverables (GDS,
+     netlist, and supporting documentation).
+
+5) Publish the IP repository.
+
+   Initialize a Git repository and push it to GitHub.
+
+   ```
+   git init
+   git add .
+   git commit -s -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/<org>/<repo>.git
+   git push -u origin main
+   ```
+
+6) Sync shared workflows (optional but recommended).
+
+   If the generated IP repo includes `check-workflow-sync.yml`, it will stage
+   workflow updates from [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW)
+   into `.github/workflows-staged/` and open an issue describing what was staged.
+
+   > **Tip**
+   > To activate a staged workflow, copy it manually into `.github/workflows/`.
+
+7) Request submodule inclusion.
+
+   Open a GitHub issue in [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW)
+   requesting the submodule addition. Include a copy-ready `.gitmodules` snippet:
+
+   ```
+   ## Submodule request
+
+   - Repository URL: https://github.com/<org>/<repo>.git
+   - Category directory: March-2026/<Category> (Analog, Digital, RF, Mixed-Signal)
+   - Submodule path: March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>
+
+   ### .gitmodules snippet
+
+   [submodule "March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>"]
+     path = March-2026/<Category>/IHP__<subcategory-abbrev>-<4digits>
+     url = https://github.com/<org>/<repo>.git
+   ```
 
 ## Physical verification
 
-Physical verification is automated and reproducible. The flow performs DRC and LVS
-using the official IHP SG13G2 KLayout decks. It resolves `release.gds` and
-`release.netlist` from `doc/info.json` before tool installation. If neither is
-referenced, the flow exits early with a warning and skips both stages. If a
-reference is present but the file is missing, the run fails immediately. When a
-layout is present without a netlist, DRC runs and LVS is skipped with a warning;
-LVS requires both artifacts.
+### Verification flow
 
-**Warning:** If `release.gds` or `release.netlist` is referenced in `doc/info.json`
-but the file is missing, the verification run fails immediately.
+Physical verification is expected to be automated and reproducible. The flow
+performs DRC and LVS using the official IHP SG13G2 KLayout decks. It resolves
+`release.gds` and `release.netlist` from `doc/info.json` before any tool
+installation. If neither is referenced, the flow exits early with a warning and
+skips both stages. If a reference is present but the file is missing, the run
+fails immediately. When a layout is present without a netlist, DRC runs and LVS
+is skipped with a warning; LVS requires both artifacts.
 
-The flow installs minimal system prerequisites (`jq`, `python3-pip`), selects a
-KLayout package matching the runner's Ubuntu version, and validates the package
-before installation. Python dependencies are installed from the IHP Open PDK
+> **Warning**
+> If `release.gds` or `release.netlist` is referenced in `doc/info.json`
+> but the file is missing, the verification run fails immediately.
+
+The flow installs minimal system prerequisites (`jq` and `python3-pip`), then
+selects a KLayout package matching the runner's Ubuntu major version. It
+validates the downloaded package before installation to avoid toolchain
+mismatches. Python dependencies are installed from the IHP Open PDK
 requirements. The official DRC and LVS rule decks are fetched via a sparse
 checkout to keep the download lightweight and deterministic.
 
-DRC runs with pre-checks enabled, writing results to a temporary directory. LVS
-runs only when both layout and netlist are present, writing results to a
-separate temporary directory. Both result directories are uploaded as
-artifacts even when a stage fails.
+DRC runs with the official deck and pre-checks enabled, writing results to a
+dedicated temporary directory. LVS runs only when both layout and netlist are
+present, writing results to a separate temporary directory. Both result
+directories are uploaded as artifacts even when a stage fails, enabling
+post-mortem analysis and consistent traceability across submissions. Ensure
+`doc/info.json` paths match actual deliverables and that release files can be
+consumed by the automated flow without manual intervention.
 
-**Tip:** Keep release artifacts and their paths in `doc/info.json` aligned before
-triggering verification to avoid avoidable re-runs.
+> **Tip**
+> Keep release artifacts and their paths in `doc/info.json` aligned before
+> triggering verification to avoid avoidable re-runs.
 
 ## Acceptance criteria
+
+### Checklist
+
+Submissions are expected to meet the following:
 
 - The repository matches the generated structure and naming convention.
 - `doc/info.json` is complete and correct.
@@ -168,15 +197,16 @@ triggering verification to avoid avoidable re-runs.
 - Dependencies are present under `dependencies/` and follow the same structure
   (submodules are acceptable).
 
-**Note:** A submission-ready GDS must satisfy the complete sign-off checklist:
-
-1. A seal ring must be present.
-2. Filler cells must be generated and included.
-3. The layout must be DRC clean, including the minimal rules in
-   https://github.com/IHP-GmbH/IHP-Open-PDK/blob/main/ihp-sg13g2/libs.tech/klayout/tech/drc/docs/precheck_rules.md.
-4. The layout must be LVS clean against the final netlist.
-5. The final release under `release/<version>/` must be saved using the KLayout
-   options shown in the figure below.
+> **Note**
+> A submission-ready GDS must satisfy the complete sign-off checklist:
+>
+> 1. A seal ring must be present.
+> 2. Filler cells must be generated and included.
+> 3. The layout must be DRC clean, including the minimal rules in
+>    https://github.com/IHP-GmbH/IHP-Open-PDK/blob/main/ihp-sg13g2/libs.tech/klayout/tech/drc/docs/precheck_rules.md.
+> 4. The layout must be LVS clean against the final netlist.
+> 5. The final release under `release/<version>/` must be saved using the KLayout
+>    options shown in the figure below.
 
 ![KLayout save options for release GDS](fig/klayout_save.png)
 
@@ -195,10 +225,3 @@ triggering verification to avoid avoidable re-runs.
 - [ ] DRC clean (including minimal precheck rules).
 - [ ] LVS clean against the final netlist.
 - [ ] Final GDS saved with the documented KLayout options.
-
-## Guidelines for Flow Developers
-
-Flow automation should preserve the systematic repository structure created by the
-generator and used across IPs. The `doc/info.json` file is required metadata and should
-be filled out automatically by the flow. This automation is work in progress, so treat
-missing fields as a blocking issue and plan for incremental updates as the flow evolves.
