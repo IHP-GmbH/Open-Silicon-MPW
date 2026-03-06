@@ -32,7 +32,8 @@
     "Sigma-Delta Modulator": "SDM",
     "Clock and Data Recovery": "CDR",
     "SerDes": "SERDES",
-    "Mixed-Signal PHY": "MSPHY"
+    "Mixed-Signal PHY": "MSPHY",
+    "SystemOnChip": "SoC"
   },
   "RF": {
     "Low Noise Amplifier": "LNA",

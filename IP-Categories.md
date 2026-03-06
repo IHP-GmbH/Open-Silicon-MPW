@@ -31,6 +31,7 @@
 | Mixed-Signal | Clock and Data Recovery | CDR |
 | Mixed-Signal | SerDes | SERDES |
 | Mixed-Signal | Mixed-Signal PHY | MSPHY |
+| Mixed-Signal | SystemOnChip | SoC |
 | RF | Low Noise Amplifier | LNA |
 | RF | Power Amplifier | PA |
 | RF | Mixer | MIX |
