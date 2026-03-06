@@ -329,17 +329,32 @@ def main() -> int:
     categories_path = Path(__file__).resolve().parent / "ip-categories.json"
     try:
         categories = load_categories(categories_url)
-    except (OSError, urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError) as exc:
-        print(
-            "Warning: Unable to fetch ip-categories.json from GitHub; "
-            "falling back to local copy.",
-            file=sys.stderr,
+    except (OSError, urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError):
+        categories = {}
+
+    if categories_path.is_file():
+        local_categories = load_categories(str(categories_path))
+        if not categories:
+            categories = local_categories
+        else:
+            for category_name, subcategories in local_categories.items():
+                categories.setdefault(category_name, {})
+                for sub_name, abbreviation in subcategories.items():
+                    categories[category_name].setdefault(sub_name, abbreviation)
+    try:
+        category, subcategory_full, subcategory_abbrev = resolve_category_from_subcategory(
+            categories,
+            subcategory_arg,
         )
-        categories = load_categories(str(categories_path))
-    category, subcategory_full, subcategory_abbrev = resolve_category_from_subcategory(
-        categories,
-        subcategory_arg,
-    )
+    except ValueError as exc:
+        if categories_path.is_file():
+            categories = load_categories(str(categories_path))
+            category, subcategory_full, subcategory_abbrev = resolve_category_from_subcategory(
+                categories,
+                subcategory_arg,
+            )
+        else:
+            raise exc
 
     mode_map = {
         "Analog": "A",

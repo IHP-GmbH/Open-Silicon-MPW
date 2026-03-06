@@ -23,7 +23,8 @@
     "Timer/Counter": "TIMER",
     "UART": "UART",
     "SPI": "SPI",
-    "I2C": "I2C"
+    "I2C": "I2C",
+    "FPGA": "FPGA"
   },
   "Mixed-Signal": {
     "Analog to Digital Converter": "ADC",
