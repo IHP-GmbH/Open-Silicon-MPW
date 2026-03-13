@@ -25,6 +25,7 @@
 | Digital | UART | UART |
 | Digital | SPI | SPI |
 | Digital | I2C | I2C |
+| Digital | I2C device | I2Cdev |
 | Mixed-Signal | Analog to Digital Converter | ADC |
 | Mixed-Signal | Digital to Analog Converter | DAC |
 | Mixed-Signal | Phase-Locked Loop | PLL |

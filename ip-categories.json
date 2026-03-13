@@ -25,6 +25,7 @@
     "UART": "UART",
     "SPI": "SPI",
     "I2C": "I2C",
+    "I2C device": "I2Cdev",
     "FPGA": "FPGA"
   },
   "Mixed-Signal": {
