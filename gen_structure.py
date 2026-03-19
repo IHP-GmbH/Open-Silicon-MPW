@@ -260,32 +260,38 @@ def create_ip_structure(
                 pass
 
     info_path = os.path.join(base, "doc", "info.json")
-    if not os.path.isfile(info_path):
-        with open(info_path, "w", encoding="utf-8") as handle:
-            json.dump(
-                {
-                    "name": ip_name,
-                    "design_type": mode,
-                    "technology": tech,
-                    "unique_id": unique_id,
-                    "license": license_type,
-                    "trl": trl_value,
-                    "repository": repository_link,
-                    "pdk_version": pdk_version,
-                    "process": process,
-                    "dependencies": dependencies,
-                    "tools": tools_used,
-                    "release": {
-                        "version": release_version,
-                        "gds": f"release/{release_version}/gds",
-                        "netlist": f"release/{release_version}/netlist",
-                        "doc": f"release/{release_version}/doc",
-                    },
-                },
-                handle,
-                indent=2,
-            )
-            handle.write("\n")
+    info_data = {}
+    if os.path.isfile(info_path):
+        with open(info_path, "r", encoding="utf-8") as handle:
+            info_data = json.load(handle)
+
+    info_data.setdefault("name", ip_name)
+    info_data.setdefault("design_type", mode)
+    info_data.setdefault("technology", tech)
+    info_data.setdefault("unique_id", unique_id)
+    info_data.setdefault("license", license_type)
+    info_data.setdefault("trl", trl_value)
+    info_data.setdefault("sealring_x", 1.0)
+    info_data.setdefault("sealring_y", 1.0)
+    info_data.setdefault("repository", repository_link)
+    info_data.setdefault("pdk_version", pdk_version)
+    info_data.setdefault("process", process)
+    info_data.setdefault("dependencies", dependencies)
+    info_data.setdefault("tools", tools_used)
+    info_data.setdefault("top_cell_name", info_data.get("name", ip_name))
+
+    release_data = info_data.get("release")
+    if not isinstance(release_data, dict):
+        release_data = {}
+    release_data.setdefault("version", release_version)
+    release_data.setdefault("gds", f"release/{release_version}/gds")
+    release_data.setdefault("netlist", f"release/{release_version}/netlist")
+    release_data.setdefault("doc", f"release/{release_version}/doc")
+    info_data["release"] = release_data
+
+    with open(info_path, "w", encoding="utf-8") as handle:
+        json.dump(info_data, handle, indent=2)
+        handle.write("\n")
 
     write_trl_template(base, mode, trl_source, fallback_dir)
     write_workflow_template(base, workflow_source, workflow_fallback_dir)
@@ -370,7 +376,7 @@ def main() -> int:
     ip_name = f"{subcategory_abbrev}{ip_suffix}"
     root = f"{tech}__{ip_name}"
     release_version = "v.1.0.0"
-    process = "SG13G2"
+    process = "SG13CMOS"
     pdk_version = ""
     license_type = "Apache-2.0"
     trl_value = 0

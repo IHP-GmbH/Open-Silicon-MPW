@@ -87,12 +87,12 @@ jobs:
           dest_dir="${DEST_DIR:-.github/workflows-staged}"
 
           if [ -z "${UPDATED_FILES:-}" ]; then
-            echo "No workflow updates to commit."
+            echo "::warning::No workflow files were staged."
             exit 0
           fi
 
           if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes detected after staging."
+            echo "::warning::No new workflow changes detected after staging."
             exit 0
           fi
 
@@ -112,7 +112,7 @@ jobs:
           dest_dir="${DEST_DIR:-.github/workflows-staged}"
 
           if [ -z "${UPDATED_FILES:-}" ]; then
-            echo "No workflow updates to report."
+            echo "::warning::No workflow updates to report."
             exit 0
           fi
 
