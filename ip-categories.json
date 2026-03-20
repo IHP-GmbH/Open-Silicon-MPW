@@ -36,7 +36,8 @@
     "Clock and Data Recovery": "CDR",
     "SerDes": "SERDES",
     "Mixed-Signal PHY": "MSPHY",
-    "SystemOnChip": "SoC"
+    "SystemOnChip": "SoC",
+    "RFID": "RFID"
   },
   "RF": {
     "Low Noise Amplifier": "LNA",
