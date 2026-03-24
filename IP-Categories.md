@@ -35,6 +35,7 @@
 | Mixed-Signal | Mixed-Signal PHY | MSPHY |
 | Mixed-Signal | SystemOnChip | SoC |
 | Mixed-Signal | RFID | RFID |
+| Mixed-Signal | Multi Project Carrier | MPC |
 | RF | Low Noise Amplifier | LNA |
 | RF | Power Amplifier | PA |
 | RF | Mixer | MIX |

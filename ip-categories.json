@@ -37,7 +37,8 @@
     "SerDes": "SERDES",
     "Mixed-Signal PHY": "MSPHY",
     "SystemOnChip": "SoC",
-    "RFID": "RFID"
+    "RFID": "RFID",
+    "Multi Project Carrier": "MPC"
   },
   "RF": {
     "Low Noise Amplifier": "LNA",
