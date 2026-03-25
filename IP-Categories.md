@@ -26,6 +26,7 @@
 | Digital | SPI | SPI |
 | Digital | I2C | I2C |
 | Digital | I2C device | I2Cdev |
+| Digital | Tensor Processing Unit | TPU |
 | Mixed-Signal | Analog to Digital Converter | ADC |
 | Mixed-Signal | Digital to Analog Converter | DAC |
 | Mixed-Signal | Phase-Locked Loop | PLL |
