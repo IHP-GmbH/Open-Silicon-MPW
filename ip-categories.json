@@ -27,7 +27,8 @@
     "I2C": "I2C",
     "I2C device": "I2Cdev",
     "FPGA": "FPGA",
-    "Tensor Processing Unit": "TPU"
+    "Tensor Processing Unit": "TPU",
+    "VGA": "VGA"
   },
   "Mixed-Signal": {
     "Analog to Digital Converter": "ADC",
