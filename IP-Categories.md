@@ -28,6 +28,7 @@
 | Digital | I2C device | I2Cdev |
 | Digital | Tensor Processing Unit | TPU |
 | Digital | VGA | VGA |
+| Digital | Digital Signal Processor | DSP |
 | Mixed-Signal | Analog to Digital Converter | ADC |
 | Mixed-Signal | Digital to Analog Converter | DAC |
 | Mixed-Signal | Phase-Locked Loop | PLL |
