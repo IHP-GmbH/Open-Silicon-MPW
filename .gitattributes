@@ -1,1 +1,2 @@
+*gds.gz filter=lfs diff=lfs merge=lfs -text
 *.gds.gz filter=lfs diff=lfs merge=lfs -text
