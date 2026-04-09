@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""Open a GDS and save it with custom KLayout options.
+
+Supports both execution styles:
+- Python CLI: python3 conv2sub.pv input.gds [output.gds]
+- KLayout batch: klayout -b -r conv2sub.pv -rd input_file=input.gds [-rd output_file=output.gds]
+"""
+
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+
+try:
+    import pya
+except ImportError as exc:  # pragma: no cover
+    raise SystemExit("Error: Could not import 'pya'. Run this script with KLayout Python support.") from exc
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Open and resave GDS with custom save options")
+    parser.add_argument("input_file", type=Path, help="Input GDS file")
+    parser.add_argument("output_file", type=Path, nargs="?", help="Output GDS file")
+    return parser.parse_args()
+
+
+def get_paths() -> tuple[Path, Path]:
+    if "input_file" in globals() and globals()["input_file"] is not None:
+        input_path = Path(str(globals()["input_file"]))
+        if "output_file" in globals() and globals()["output_file"] is not None:
+            output_path = Path(str(globals()["output_file"]))
+        else:
+            output_path = input_path.with_name(f"{input_path.stem}_sub.gds")
+        return input_path, output_path
+
+    args = parse_args()
+    input_path = args.input_file
+    output_path = args.output_file or input_path.with_name(f"{input_path.stem}_sub.gds")
+    return input_path, output_path
+
+
+def validate_input(path: Path) -> Path:
+    resolved = path.expanduser().resolve()
+    if not resolved.exists():
+        raise FileNotFoundError(f"Input file not found: {resolved}")
+    if not resolved.is_file():
+        raise ValueError(f"Input path is not a file: {resolved}")
+    if resolved.suffix.lower() != ".gds":
+        raise ValueError(f"Input file must have .gds extension: {resolved}")
+    return resolved
+
+
+def configure_save_options() -> pya.SaveLayoutOptions:
+    tech = pya.Technology.technology_by_name("")
+    options = tech.save_layout_options
+    options.gds2_no_zero_length_paths = True
+    options.write_context_info = False
+    tech.save_layout_options = options
+    return options
+
+
+def convert(input_path: Path, output_path: Path) -> Path:
+    layout = pya.Layout()
+    layout.read(str(input_path))
+    options = configure_save_options()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    layout.write(str(output_path), options)
+    return output_path
+
+
+def main() -> int:
+    try:
+        input_path, output_path = get_paths()
+        input_path = validate_input(input_path)
+        output_path = output_path.expanduser().resolve()
+        saved_path = convert(input_path, output_path)
+    except (FileNotFoundError, ValueError) as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return 2
+    except Exception as exc:
+        print(f"Conversion failed: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"Saved '{saved_path}'")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

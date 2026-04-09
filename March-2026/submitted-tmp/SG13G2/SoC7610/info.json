@@ -1,0 +1,22 @@
+{
+  "name": "SoC7610",
+  "design_type": "M",
+  "technology": "IHP",
+  "unique_id": "7610",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 3350.0,
+  "sealring_y": 3350.0,
+  "repository": "https://github.com/mgolser/IHP__SoC7610",
+  "pdk_version": "d942fd7c65a4e98d0815d0d9f2b977a0d810ce2e",
+  "process": "SG13CMOS",
+  "dependencies": {},
+  "tools": {},
+  "top_cell_name": "SoC7610",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds",
+    "netlist": "release/v.1.0.0/netlist",
+    "doc": "release/v.1.0.0/doc"
+  }
+}

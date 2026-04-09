@@ -1,0 +1,9 @@
+Zero-area polygon cleanup report
+Input layout (original): /home/herman/github/IHP-GmbH/submission/SG13G2/RFID8549/RFID8549__subtmp.gds
+Output layout: /home/herman/github/IHP-GmbH/submission/SG13G2/RFID8549/RFID8549.gds
+Total zero-area polygons found on original layout: 15
+
+Counts by layer:
+- 30/0: 3
+- 44/0: 4
+- 8/0: 8

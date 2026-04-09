@@ -1,0 +1,7 @@
+Zero-area polygon cleanup report
+Input layout (original): /home/herman/github/IHP-GmbH/submission/SG13G2/SoC9692/SoC9692__subtmp.gds
+Output layout: /home/herman/github/IHP-GmbH/submission/SG13G2/SoC9692/SoC9692.gds
+Total zero-area polygons found on original layout: 1
+
+Counts by layer:
+- 8/0: 1

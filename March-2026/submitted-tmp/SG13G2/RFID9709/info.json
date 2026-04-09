@@ -1,0 +1,38 @@
+{
+  "name": "RFID9709",
+  "design_type": "M",
+  "technology": "IHP",
+  "unique_id": "9709",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 1.0,
+  "sealring_y": 1.0,
+  "repository": "",
+  "pdk_version": "",
+  "process": "SG13CMOS",
+  "dependencies": {
+    "BGR": {
+      "dependencies": {}
+    },
+    "CORE": {
+      "dependencies": {}
+    },
+    "RFFE": {
+      "dependencies": {}
+    },
+    "LDO": {
+      "dependencies": {}
+    },
+    "CDR": {
+      "dependencies": {}
+    }
+  },
+  "tools": {},
+  "top_cell_name": "RFID9709",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds/RFID9709.gds.gz",
+    "netlist": "",
+    "doc": "release/v.1.0.0/doc"
+  }
+}

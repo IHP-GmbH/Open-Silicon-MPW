@@ -1,0 +1,35 @@
+{
+  "name": "SoC3421",
+  "design_type": "A-M",
+  "technology": "IHP",
+  "unique_id": "3421",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 1.1,
+  "sealring_y": 1.1,
+  "repository": "",
+  "pdk_version": "",
+  "process": "SG13CMOS",
+  "dependencies": {
+    "LDO": {
+      "dependencies": {}
+    },
+    "BGR": {
+      "dependencies": {}
+    },
+    "OTA": {
+      "dependencies": {}
+    },
+    "digital_block_top": {
+      "dependencies": {}
+    }
+  },
+  "tools": {},
+  "top_cell_name": "SoC3421",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds/SoC3421.gds",
+    "netlist": "release/v.1.0.0/netlist/SoC3421.cdl",
+    "doc": "release/v.1.0.0/doc"
+  }
+}

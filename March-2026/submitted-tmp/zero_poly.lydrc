@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description>Zero polygon detection</description>
+ <version>0.1</version>
+ <category>misc</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>false</autorun>
+ <autorun-early>false</autorun-early>
+ <priority>0</priority>
+ <shortcut/>
+ <show-in-menu>true</show-in-menu>
+ <group-name>None</group-name>
+ <menu-path>sg13g2_menu&gt;end("SG13G2 PDK").end</menu-path>
+ <interpreter>dsl</interpreter>
+ <dsl-interpreter-name>drc-dsl-xml</dsl-interpreter-name>
+ <text>report("SG13G2 zero-area polygon check and cleanup")
+
+layers = [
+  ["1/0",   "Activ.drawing"],
+  ["5/0",   "GatPoly.drawing"],
+  ["6/0",   "Cont.drawing"],
+  ["7/0",   "nSD.drawing"],
+  ["8/0",   "Metal1.drawing"],
+  ["9/0",   "Passiv.drawing"],
+  ["10/0",  "Metal2.drawing"],
+  ["14/0",  "pSD.drawing"],
+  ["19/0",  "Via1.drawing"],
+  ["20/0",  "BackMetal1.drawing"],
+  ["27/0",  "IND.drawing"],
+  ["29/0",  "Via2.drawing"],
+  ["30/0",  "Metal3.drawing"],
+  ["31/0",  "NWell.drawing"],
+  ["32/0",  "nBuLay.drawing"],
+  ["36/0",  "MIM.drawing"],
+  ["44/0",  "ThickGateOx.drawing"],
+  ["49/0",  "Via3.drawing"],
+  ["50/0",  "Metal4.drawing"],
+  ["66/0",  "Via4.drawing"],
+  ["67/0",  "Metal5.drawing"],
+  ["72/0",  "IntBondVia.drawing"],
+  ["73/0",  "IntBondMet.drawing"],
+  ["74/0",  "DevBondVia.drawing"],
+  ["75/0",  "DevBondMet.drawing"],
+  ["77/0",  "Redist.drawing"],
+  ["83/0",  "AntVia1.drawing"],
+  ["84/0",  "AntMetal2.drawing"],
+  ["125/0", "TopVia1.drawing"],
+  ["126/0", "TopMetal1.drawing"],
+  ["128/0", "PolyRes.drawing"],
+  ["129/0", "Vmim.drawing"],
+  ["132/0", "AntMetal1.drawing"],
+  ["133/0", "TopVia2.drawing"],
+  ["134/0", "TopMetal2.drawing"],
+  ["146/0", "ThinFilmRes.drawing"]
+]
+
+dry_run = true
+
+layers.each do |spec, name|
+  l = input(spec)
+  l.raw.with_area(0).output("Zero-area polygon on #{name} (#{spec})")
+end
+
+puts "Report-only mode: cleanup/removal is disabled."
+puts "See DRC report database entries for zero-area polygon hits."</text>
+</klayout-macro>
