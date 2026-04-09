@@ -12,6 +12,7 @@
 | Analog | Temperature Sensor | TSENSE |
 | Analog | Oscillator | OSC |
 | Analog | Power Management IC | PMIC |
+| Analog | SW | SW |
 | Digital | Microcontroller | MCU |
 | Digital | Microprocessor | MPU |
 | Digital | RISC-V Core | RISCV |

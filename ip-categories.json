@@ -9,7 +9,8 @@
     "Charge Pump": "CP",
     "Temperature Sensor": "TSENSE",
     "Oscillator": "OSC",
-    "Power Management IC": "PMIC"
+    "Power Management IC": "PMIC",
+    "SW": "SW"
   },
   "Digital": {
     "Microcontroller": "MCU",
