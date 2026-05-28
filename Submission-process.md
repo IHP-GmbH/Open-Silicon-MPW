@@ -7,7 +7,7 @@ issues.
 ## Request submodule inclusion.
 
 Open a GitHub issue in [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW)
-with the title **Request for submission March-2026 repository name**,
+with the title **Request for submission July-2026 repository name**,
 requesting the submodule addition. Include a copy-ready `.gitmodules` snippet:
    
 > **Note**
@@ -15,21 +15,20 @@ requesting the submodule addition. Include a copy-ready `.gitmodules` snippet:
 
 
    ```
-   ## Submodule request for March-2026 Open-Silicon MPW
+   ## Submodule request for July-2026 Open-Silicon MPW
 
    - Repository URL: https://github.com/<org>/<repo>.git
-   - Category directory: March-2026/<Category> (Analog, Digital, RF, Mixed-Signal)
-   - Submodule path: March-2026/<Category>/IHP__<subcategory-abbrev><4digits>
+   - Category directory: July-2026/<Category> (Analog, Digital, RF, Mixed-Signal)
+   - Submodule path: July-2026/<Category>/IHP__<subcategory-abbrev><4digits>
 
    ### .gitmodules snippet
 
-   [submodule "March-2026/<Category>/IHP__<subcategory-abbrev><4digits>"]
-     path = March-2026/<Category>/IHP__<subcategory-abbrev><4digits>
+   [submodule "July-2026/<Category>/IHP__<subcategory-abbrev><4digits>"]
+     path = July-2026/<Category>/IHP__<subcategory-abbrev><4digits>
      url = https://github.com/<org>/<repo>.git
    ```
 ## Confirmation of the submitted design
 
 After the request your design will be evaluated by the foundry and you will get the confirmation 
 via github.
-
 

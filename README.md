@@ -16,7 +16,7 @@ Mixed-Signal design categories.
 
 Categories and subcategories are standardized. Select the correct subcategory before
 generation and keep the category consistent with the repository placement under
-`March-2026/<Category>`. Subcategories map to fixed abbreviations and those abbreviations
+`July-2026/<Category>`. Subcategories map to fixed abbreviations and those abbreviations
 must be used in the top-level IP name and kept consistent with `doc/info.json`. If you
 would like to add more subcategories or abbreviations, request them via a GitHub issue on
 [Open-Silicon-MPW](https://github.com/IHP-GmbH/Open-Silicon-MPW).
