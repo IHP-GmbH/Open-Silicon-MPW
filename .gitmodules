@@ -1,0 +1,69 @@
+[submodule "March-2026/Digital/IHP__I2Cdev2149"]
+	path = March-2026/Digital/IHP__I2Cdev2149
+	url = https://github.com/aesc-silicon/IHP__I2Cdev2149.git
+[submodule "March-2026/Digital/IHP__CRYPTO8037"]
+	path = March-2026/Digital/IHP__CRYPTO8037
+	url = https://github.com/hm-aemy/IHP__CRYPTO8037.git
+[submodule "March-2026/Mixed-Signal/IHP__RFID4410"]
+	path = March-2026/Mixed-Signal/IHP__RFID4410
+	url = https://github.com/CDTA-DMN/IHP__RFID4410.git
+[submodule "March-2026/Digital/IHP__VGA2210"]
+	path = March-2026/Digital/IHP__VGA2210
+	url = https://github.com/hm-aemy/IHP__VGA2210.git
+[submodule "March-2026/Mixed-Signal/IHP__SoC3421"]
+	path = March-2026/Mixed-Signal/IHP__SoC3421
+	url = https://github.com/CDTA-DMN/IHP__SoC3421.git
+[submodule "March-2026/Digital/IHP__TT26004"]
+	path = March-2026/Digital/IHP__TT26004
+	url = https://github.com/tinytapeout/tinytapeout-ihp-0p4-foundry-submission.git
+[submodule "March-2026/Mixed-Signal/IHP__RFID8549"]
+	path = March-2026/Mixed-Signal/IHP__RFID8549
+	url = https://github.com/CDTA-DMN/IHP__RFID8549.git
+[submodule "March-2026/Mixed-Signal/IHP__SoC9692"]
+	path = March-2026/Mixed-Signal/IHP__SoC9692
+	url = https://github.com/CDTA-DMN/IHP__SoC9692.git
+[submodule "March-2026/Digital/IHP__VGA7734"]
+	path = March-2026/Digital/IHP__VGA7734
+	url = https://github.com/hm-aemy/IHP__VGA7734.git
+[submodule "March-2026/Mixed-Signal/IHP__RFID9709"]
+	path = March-2026/Mixed-Signal/IHP__RFID9709
+	url = https://github.com/CDTA-DMN/IHP__RFID9709.git
+[submodule "March-2026/Mixed-Signal/IHP_SoC8767"]
+	path = March-2026/Mixed-Signal/IHP_SoC8767
+	url = https://github.com/CDTA-DMN/IHP__SoC8767
+[submodule "March-2026/Mixed-Signal/IHP_SoC8614"]
+	path = March-2026/Mixed-Signal/IHP_SoC8614
+	url = https://github.com/CDTA-DMN/IHP__SoC8614
+[submodule "March-2026/RF/IHP__RFFE6027"]
+	path = March-2026/RF/IHP__RFFE6027
+	url = https://github.com/davkel99/IHP__RFFE6027.git
+[submodule "March-2026/Mixed-Signal/IHP__SoC4219"]
+	path = March-2026/Mixed-Signal/IHP__SoC4219
+	url = https://github.com/jona250210/IHP__SoC4219.git
+[submodule "March-2026/Mixed-Signal/IHP__MPC9763"]
+	path = March-2026/Mixed-Signal/IHP__MPC9763
+	url = https://github.com/RTimothyEdwards/IHP__MPC9763.git
+[submodule "March-2026/Digital/IHP__MCU2972"]
+	path = March-2026/Digital/IHP__MCU2972
+	url = https://github.com/CDTA-DMN/IHP__MCU2972.git
+[submodule "March-2026/Digital/IHP__RISCV2617"]
+	path = March-2026/Digital/IHP__RISCV2617
+	url = https://github.com/HEP-Alliance/IHP__RISCV2617.git
+[submodule "March-2026/Mixed-Signal/IHP__SoC1757"]
+	path = March-2026/Mixed-Signal/IHP__SoC1757
+	url = https://github.com/hm-aemy/IHP__SoC1757.git
+[submodule "March-2026/Mixed-Signal/IHP__SoC7610"]
+	path = March-2026/Mixed-Signal/IHP__SoC7610
+	url = https://github.com/mgolser/IHP__SoC7610.git
+[submodule "March-2026/Mixed-Signal/IHP_SoC2263"]
+	path = March-2026/Mixed-Signal/IHP_SoC2263
+	url = https://github.com/CDTA-DMN/IHP__SoC2263
+[submodule "March-2026/Digital/IHP__TPU1328"]
+	path = March-2026/Digital/IHP__TPU1328
+	url = https://github.com/jalcim/TPU1328.git
+[submodule "March-2026/Digital/IHP__FPGA8213"]
+	path = March-2026/Digital/IHP__FPGA8213
+	url = https://github.com/HeiChips/heichips25-submission.git
+[submodule "March-2026/Digital/IHP__TPU9012"]
+	path = March-2026/Digital/IHP__TPU9012
+	url = https://github.com/jalcim/IHP__TPU9012.git
