@@ -49,3 +49,4 @@
 | RF | RF Front End | RFFE |
 | RF | RF Switch | RFSW |
 | RF | Balun | BALUN |
+| RF | Antenna | ANT |

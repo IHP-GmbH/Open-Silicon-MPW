@@ -53,6 +53,7 @@
     "Frequency Synthesizer": "FSYN",
     "RF Front End": "RFFE",
     "RF Switch": "RFSW",
-    "Balun": "BALUN"
+    "Balun": "BALUN",
+    "Antenna": "ANT"
   }
 }
