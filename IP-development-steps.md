@@ -33,7 +33,7 @@ submodule inclusion.
 
 4) Develop and document the IP.
 
-   In the standalone IP repository:
+   Copy the generated folder structure and use it as a standalone IP repository:
 
    - Implement the design and keep the directory layout intact.
    - Keep the top cell name aligned with the generated name (for example,
