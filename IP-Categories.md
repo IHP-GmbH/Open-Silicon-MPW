@@ -16,6 +16,7 @@
 | Digital | Microcontroller | MCU |
 | Digital | Microprocessor | MPU |
 | Digital | RISC-V Core | RISCV |
+| Digital | RiscV based digital SoC | RVSoC |
 | Digital | Memory Controller | MEMCTRL |
 | Digital | DMA Controller | DMA |
 | Digital | Security Engine | SEC |

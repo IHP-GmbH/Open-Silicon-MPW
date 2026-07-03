@@ -16,6 +16,7 @@
     "Microcontroller": "MCU",
     "Microprocessor": "MPU",
     "RISC-V Core": "RISCV",
+    "RiscV based digital SoC": "RVSoC",
     "Memory Controller": "MEMCTRL",
     "DMA Controller": "DMA",
     "Security Engine": "SEC",
