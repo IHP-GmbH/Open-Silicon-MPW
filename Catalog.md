@@ -17,8 +17,8 @@
 | CDN | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CND/doc |
 | CDR | M | IHP | 9709 | March-2026/Mixed-Signal/IHP__RFID9709/dependencies/CDR/doc |
 | CE | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/CE/doc |
-| CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/ADC/dependencies/RAMP_GEN/doc |
 | CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CLK/doc |
+| CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/ADC/dependencies/RAMP_GEN/doc |
 | ClockExtractor | A | IHP | 4410 | March-2026/Mixed-Signal/IHP__RFID4410/dependencies/ClockExtractor/doc |
 | CORE | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CORE/doc |
 | CORE | D | IHP | 8614 | March-2026/Mixed-Signal/IHP_SoC8614/dependencies/CORE/doc |
@@ -81,7 +81,7 @@
 | TPU9012 | D | IHP | 9012 | March-2026/Digital/IHP__TPU9012/doc |
 | TT0004 | D | IHP | 0004 | March-2026/Digital/IHP__TT26004/doc |
 | VCO | R | IHP | 8767 | March-2026/Mixed-Signal/IHP_SoC8767/dependencies/VCO/doc |
-| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/VCO/doc |
 | VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/POR/doc |
+| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/VCO/doc |
 | VGA2210 | D | IHP | 2210 | March-2026/Digital/IHP__VGA2210/doc |
 | VGA7734 | D | IHP | 7734 | March-2026/Digital/IHP__VGA7734/doc |
