@@ -17,8 +17,8 @@
 | CDN | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CND/doc |
 | CDR | M | IHP | 9709 | March-2026/Mixed-Signal/IHP__RFID9709/dependencies/CDR/doc |
 | CE | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/CE/doc |
-| CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/ADC/dependencies/RAMP_GEN/doc |
 | CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CLK/doc |
+| CLK | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/ADC/dependencies/RAMP_GEN/doc |
 | ClockExtractor | A | IHP | 4410 | March-2026/Mixed-Signal/IHP__RFID4410/dependencies/ClockExtractor/doc |
 | CORE | M | IHP | 2263 | March-2026/Mixed-Signal/IHP_SoC2263/dependencies/CORE/doc |
 | CORE | D | IHP | 8614 | March-2026/Mixed-Signal/IHP_SoC8614/dependencies/CORE/doc |
@@ -31,8 +31,8 @@
 | I2C | D | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/CORE/doc |
 | I2Cdev2149 | D | IHP | 2149 | March-2026/Digital/IHP__I2Cdev2149/doc |
 | LDO | A | IHP | 3421 | March-2026/Mixed-Signal/IHP__SoC3421/dependencies/pmu_ip/dependencies/LDO/doc |
-| LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_2/doc |
 | LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_1/doc |
+| LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_2/doc |
 | LDO | A | IHP | 8614 | March-2026/Mixed-Signal/IHP_SoC8614/dependencies/LDO/doc |
 | LDO | A | IHP | 8767 | March-2026/Mixed-Signal/IHP_SoC8767/dependencies/LDO/doc |
 | LDO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/LDO/doc |
