@@ -31,8 +31,8 @@
 | I2C | D | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/CORE/doc |
 | I2Cdev2149 | D | IHP | 2149 | March-2026/Digital/IHP__I2Cdev2149/doc |
 | LDO | A | IHP | 3421 | March-2026/Mixed-Signal/IHP__SoC3421/dependencies/pmu_ip/dependencies/LDO/doc |
-| LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_2/doc |
 | LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_1/doc |
+| LDO | M | IHP | 8549 | March-2026/Mixed-Signal/IHP__RFID8549/dependencies/LDO_2/doc |
 | LDO | A | IHP | 8614 | March-2026/Mixed-Signal/IHP_SoC8614/dependencies/LDO/doc |
 | LDO | A | IHP | 8767 | March-2026/Mixed-Signal/IHP_SoC8767/dependencies/LDO/doc |
 | LDO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/LDO/doc |
@@ -81,7 +81,7 @@
 | TPU9012 | D | IHP | 9012 | March-2026/Digital/IHP__TPU9012/doc |
 | TT0004 | D | IHP | 0004 | March-2026/Digital/IHP__TT26004/doc |
 | VCO | R | IHP | 8767 | March-2026/Mixed-Signal/IHP_SoC8767/dependencies/VCO/doc |
-| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/POR/doc |
 | VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/VCO/doc |
+| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/POR/doc |
 | VGA2210 | D | IHP | 2210 | March-2026/Digital/IHP__VGA2210/doc |
 | VGA7734 | D | IHP | 7734 | March-2026/Digital/IHP__VGA7734/doc |
