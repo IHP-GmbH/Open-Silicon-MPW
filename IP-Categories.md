@@ -13,6 +13,7 @@
 | Analog | Oscillator | OSC |
 | Analog | Power Management IC | PMIC |
 | Analog | Analog Switch | SW |
+| Analog | TEST | TEST |
 | Digital | Microcontroller | MCU |
 | Digital | Microprocessor | MPU |
 | Digital | RISC-V Core | RISCV |

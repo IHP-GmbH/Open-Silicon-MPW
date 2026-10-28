@@ -10,7 +10,8 @@
     "Temperature Sensor": "TSENSE",
     "Oscillator": "OSC",
     "Power Management IC": "PMIC",
-    "SW": "SW"
+    "SW": "SW",
+    "TEST": "TEST"
   },
   "Digital": {
     "Microcontroller": "MCU",
