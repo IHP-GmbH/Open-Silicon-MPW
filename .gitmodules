@@ -103,17 +103,17 @@
 [submodule "July-2026/Mixed-Signal/IHP__ADC4707"]
 	path = July-2026/Mixed-Signal/IHP__ADC4707
 	url = https://github.com/DZ-ETHZurich/IHP__ADC4707.git
-[submodule "September-2026/Mixed-Signal/IHP__TT2609"]
-	path = September-2026/Mixed-Signal/IHP__TT2609
+[submodule "Oct-2026/Mixed-Signal/IHP__TT2609"]
+	path = Oct-2026/Mixed-Signal/IHP__TT2609
 	url = https://github.com/TinyTapeout/tinytapeout-ihp-26b-foundry-submission.git
-[submodule "September-2026/RF/IHP__LNA2609"]
-	path = September-2026/RF/IHP__LNA2609
+[submodule "Oct-2026/RF/IHP__LNA2609"]
+	path = Oct-2026/RF/IHP__LNA2609
 	url = https://github.com/taehwan-lnf/IHP__LNA2609.git
-[submodule "Sep-2026/RF/IHP__PA9203"]
-	path = Sep-2026/RF/IHP__PA9203
+[submodule "Oct-2026/RF/IHP__PA9203"]
+	path = Oct-2026/RF/IHP__PA9203
 	url = https://github.com/ardrhm/IHP__PA9203.git
-[submodule "Sep-2026/RF/IHP__LNA2160"]
-	path = Sep-2026/RF/IHP__LNA2160
+[submodule "Oct-2026/RF/IHP__LNA2160"]
+	path = Oct-2026/RF/IHP__LNA2160
 	url = https://github.com/engrvip123/IHP__LNA2160.git
 [submodule "Oct-2026/Mixed-Signal/IHP__MPC2795"]
 	path = Oct-2026/Mixed-Signal/IHP__MPC2795
