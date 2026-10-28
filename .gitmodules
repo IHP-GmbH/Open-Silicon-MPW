@@ -67,3 +67,75 @@
 [submodule "March-2026/Digital/IHP__TPU9012"]
 	path = March-2026/Digital/IHP__TPU9012
 	url = https://github.com/jalcim/IHP__TPU9012.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC9551"]
+	path = July-2026/Mixed-Signal/IHP__SoC9551
+	url = https://github.com/SLICESemiconductor/IHP__SoC9551.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC0226"]
+	path = July-2026/Mixed-Signal/IHP__SoC0226
+	url = https://github.com/DZ-ETHZurich/IHP__SoC0226.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC0326"]
+	path = July-2026/Mixed-Signal/IHP__SoC0326
+	url = https://github.com/DZ-ETHZurich/IHP__SoC0326.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC1026"]
+	path = July-2026/Mixed-Signal/IHP__SoC1026
+	url = https://github.com/DZ-ETHZurich/IHP__SoC1026.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC1226"]
+	path = July-2026/Mixed-Signal/IHP__SoC1226
+	url = https://github.com/DZ-ETHZurich/IHP__SoC1226.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC2426"]
+	path = July-2026/Mixed-Signal/IHP__SoC2426
+	url = https://github.com/DZ-ETHZurich/IHP__SoC2426.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC3326"]
+	path = July-2026/Mixed-Signal/IHP__SoC3326
+	url = https://github.com/DZ-ETHZurich/IHP__SoC3326.git
+[submodule "July-2026/Mixed-Signal/IHP__SoC3426"]
+	path = July-2026/Mixed-Signal/IHP__SoC3426
+	url = https://github.com/DZ-ETHZurich/IHP__SoC3426.git
+[submodule "July-2026/Mixed-Signal/IHP__MSPHY9932"]
+	path = July-2026/Mixed-Signal/IHP__MSPHY9932
+	url = https://github.com/mthudaa/IHP__MSPHY9932.git
+[submodule "July-2026/RF/IHP__RFFE4095"]
+	path = July-2026/RF/IHP__RFFE4095
+	url = https://github.com/Purdue-IEEE-EDS/IHP__RFFE4095.git
+[submodule "July-2026/Digital/IHP__RVSoC8946"]
+	path = July-2026/Digital/IHP__RVSoC8946
+	url = https://github.com/ntlchr/IHP__RVSoC8946.git
+[submodule "July-2026/Mixed-Signal/IHP__ADC4707"]
+	path = July-2026/Mixed-Signal/IHP__ADC4707
+	url = https://github.com/DZ-ETHZurich/IHP__ADC4707.git
+[submodule "September-2026/Mixed-Signal/IHP__TT2609"]
+	path = September-2026/Mixed-Signal/IHP__TT2609
+	url = https://github.com/TinyTapeout/tinytapeout-ihp-26b-foundry-submission.git
+[submodule "September-2026/RF/IHP__LNA2609"]
+	path = September-2026/RF/IHP__LNA2609
+	url = https://github.com/taehwan-lnf/IHP__LNA2609.git
+[submodule "Sep-2026/RF/IHP__PA9203"]
+	path = Sep-2026/RF/IHP__PA9203
+	url = https://github.com/ardrhm/IHP__PA9203.git
+[submodule "Sep-2026/RF/IHP__LNA2160"]
+	path = Sep-2026/RF/IHP__LNA2160
+	url = https://github.com/engrvip123/IHP__LNA2160.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MPC2795"]
+	path = Oct-2026/Mixed-Signal/IHP__MPC2795
+	url = https://github.com/Fundacion-Fulgor/IHP__MPC2795.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MPC5705"]
+	path = Oct-2026/Mixed-Signal/IHP__MPC5705
+	url = https://github.com/rami-ferreyra/IHP__MPC5705.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MPC0349"]
+	path = Oct-2026/Mixed-Signal/IHP__MPC0349
+	url = https://github.com/LuighiV/IHP__MPC0349.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MPC0388"]
+	path = Oct-2026/Mixed-Signal/IHP__MPC0388
+	url = https://github.com/manuel-monge/IHP__MPC0388.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MSPHY6034"]
+	path = Oct-2026/Mixed-Signal/IHP__MSPHY6034
+	url = https://github.com/unic-cass/IHP__MSPHY6034.git
+[submodule "Oct-2026/Mixed-Signal/IHP__MPC2585"]
+	path = Oct-2026/Mixed-Signal/IHP__MPC2585
+	url = https://github.com/LuighiV/IHP__MPC2585.git
+[submodule "Oct-2026/Mixed-Signal/IHP__SoC1816"]
+	path = Oct-2026/Mixed-Signal/IHP__SoC1816
+	url = https://github.com/simra-tech/IHP__SoC1816.git
+[submodule "Oct-2026/Mixed-Signal/IHP__SoC9104"]
+	path = Oct-2026/Mixed-Signal/IHP__SoC9104
+	url = https://github.com/DZ-ETHZurich/IHP__SoC9104.git
