@@ -120,7 +120,7 @@
 | user_project | D | IHP | 2795 | Oct-2026/Mixed-Signal/IHP__MPC2795/dependencies/user_project/doc |
 | user_project_example | D | IHP | 2795 | Oct-2026/Mixed-Signal/IHP__MPC2795/dependencies/user_project_example/doc |
 | VCO | R | IHP | 8767 | March-2026/Mixed-Signal/IHP_SoC8767/dependencies/VCO/doc |
-| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/POR/doc |
 | VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/VCO/doc |
+| VCO | A | IHP | 9692 | March-2026/Mixed-Signal/IHP__SoC9692/dependencies/POR/doc |
 | VGA2210 | D | IHP | 2210 | March-2026/Digital/IHP__VGA2210/doc |
 | VGA7734 | D | IHP | 7734 | March-2026/Digital/IHP__VGA7734/doc |
